@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:gymwebapp/pages/dashboards/dashboard.dart';
 
 import 'router.gr.dart';
 
@@ -14,6 +15,8 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(path: '/formpage', page: GymFormPage.page),
         AutoRoute(path: '/WebLoginPage', page: WebLoginPage.page),
+        AutoRoute(path: '/PaymentPage', page: PaymentPage.page),
+        AutoRoute(path: '/DashboardRoute', page: DashboardRoute.page),
       
       ];
 }

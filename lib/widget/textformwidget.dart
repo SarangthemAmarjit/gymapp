@@ -12,7 +12,7 @@ class TextFieldWidget extends StatefulWidget {
     this.icon,
     this.interactivetext,
     this.obscure = false, 
-    this.autovalidateMode = AutovalidateMode.onUserInteraction
+    this.autovalidateMode = AutovalidateMode.onUserInteraction, this.align = TextAlign.left, this.enablefield = true
   });
   final String hint;
   final Icon? icon;
@@ -22,8 +22,11 @@ class TextFieldWidget extends StatefulWidget {
   final FocusNode? focusnode;
   final FocusNode? nextfocusnode;
   final Function? fieldsubmitted;
+
   final bool? interactivetext;
   final AutovalidateMode autovalidateMode;
+  final TextAlign align;
+  final bool enablefield;
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
@@ -48,7 +51,8 @@ bool toggless = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-    
+      enabled: widget.enablefield ,
+      textAlign: widget.align,
       controller: widget.controller,
       focusNode: widget.focusnode,
       onFieldSubmitted: (value){
@@ -60,6 +64,8 @@ bool toggless = false;
         }
     
       },
+
+
       validator:(v){
        if(widget.validator==null){
           if(widget.controller.text.trim().isEmpty){

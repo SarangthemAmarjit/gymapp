@@ -16,6 +16,8 @@ class PageGetController extends GetxController{
     scrollController = ItemScrollController();
   }
   
+
+
   void setscrollcontroller(ItemScrollController controller){
         scrollController = controller;
         update();

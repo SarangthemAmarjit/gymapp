@@ -38,7 +38,7 @@ class _ScreenHandlerPageState extends State<ScreenHandlerPage> with TickerProvid
   void initState() {
     super.initState();
     Get.put(PageGetController()).onInit();
-    Get.put(GetxTapController()).onInit();
+    Get.put(GetxTapController(context: context)).onInit();
 
 
  

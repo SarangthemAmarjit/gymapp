@@ -18,16 +18,16 @@ class ContactUsScreen extends StatelessWidget {
       height: MediaQuery.sizeOf(context).width>800?700:1000,
       child: Column(
         children: [
-          Expanded(
-            flex: 3,
-            child: CardWithShadow(
-              child: OverlayCard(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Theme.of(context).colorScheme.primary.withOpacity(0.7),Theme.of(context).colorScheme.primary.withOpacity(0.5)]),
-                child: Image.asset("assets/images/map.png",fit: BoxFit.contain,)),
-            )),
+          // Expanded(
+          //   flex: 3,
+          //   child: CardWithShadow(
+          //     child: OverlayCard(
+          //       gradient: LinearGradient(
+          //         begin: Alignment.topCenter,
+          //         end: Alignment.bottomCenter,
+          //         colors: [Theme.of(context).colorScheme.primary.withOpacity(0.7),Theme.of(context).colorScheme.primary.withOpacity(0.5)]),
+          //       child: Image.asset("assets/images/map.png",fit: BoxFit.contain,)),
+          //   )),
            Expanded(
             flex: 2,
             child: ContactCard()) 
@@ -61,23 +61,24 @@ class _ContactCardState extends State<ContactCard> {
           child: Stack(
         
             children: [
-                       Positioned(
-                child: OverlayCard(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                  Theme.of(context).colorScheme.primary,
+            //            Positioned(
+            //     child: OverlayCard(
+            //   gradient: LinearGradient(
+            //       begin: Alignment.topLeft,
+            //       end: Alignment.bottomLeft,
+            //       colors: [
+            //       Theme.of(context).colorScheme.primary,
                   
-                    Theme.of(context).colorScheme.primary.withOpacity(0.7)
+            //         Theme.of(context).colorScheme.primary.withOpacity(0.7)
                    
-                  ]),
-              child: Image.asset(
-                'assets/images/backg.jpg',
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.low,
-              ),
-            )),
+            //       ]),
+               
+            //   child: Image.asset(
+            //     'assets/images/backg.jpg',
+            //     fit: BoxFit.cover,
+            //     filterQuality: FilterQuality.low,
+            //   ),
+            // )),
              MediaQuery.sizeOf(context).width>800?Positioned(
                child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -209,7 +210,8 @@ class _ContactCardState extends State<ContactCard> {
                         
                 ),
              ),
-            ],
+             
+                 ],
           ));
       }
     );

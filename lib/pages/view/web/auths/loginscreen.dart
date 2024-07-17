@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gymwebapp/controller/pagegetcontroller.dart';
 import 'package:gymwebapp/controller/tapcontroller.dart';
+import 'package:gymwebapp/domains/usecase/domainusecases.dart';
+import 'package:gymwebapp/domains/usecase/usecasesimpl.dart';
 
 import '../../../../widget/textformwidget.dart';
 import '../../../../widget/titletext.dart';
@@ -26,12 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordcontroller = TextEditingController();
   final FocusNode _passwordfocus = FocusNode();
   final FocusNode _emailfocus = FocusNode();
-
+  final AuthUseCases _useCases = AuthenticateUseCase();
 
 Future<bool> validateform(String email,String pass)  async{
-
-    return false;
-
+    
+  return _formkey.currentState!.validate();
   }
 
 
@@ -40,7 +41,7 @@ Future<bool> validateform(String email,String pass)  async{
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
-
+          Get.find<GetxTapController>();
         
           _emailfocus.requestFocus();
     });
@@ -88,7 +89,7 @@ Future<bool> validateform(String email,String pass)  async{
                               child: Column(
                                 children: [
                                   TextFieldWidget(
-                                    hint: "Email",
+                                    hint: "Username",
                                       icon: const Icon(Icons.mail),
                                     controller: _emailcontroller,
                                     focusnode: _emailfocus,
@@ -109,8 +110,13 @@ Future<bool> validateform(String email,String pass)  async{
                                     icon: const Icon(Icons.lock),
                                     obscure: true,
                                     
-                                    fieldsubmitted:() {
-                                   validateform(_emailcontroller.text,_passwordcontroller.text);
+                                    fieldsubmitted:()  async{
+                                   await validateform(_emailcontroller.text,_passwordcontroller.text).then((v){
+                                    if(v){
+                                      tapcontroller.authenticate(_emailcontroller.text,_passwordcontroller.text);
+                                    }
+
+                                   });
                                      
                                       
                                     
@@ -153,7 +159,14 @@ Future<bool> validateform(String email,String pass)  async{
                           ),
                           MaterialButton(
                             disabledColor: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-                            onPressed:(){},
+                            onPressed:()async{
+                                         await validateform(_emailcontroller.text,_passwordcontroller.text).then((v){
+                                    if(v){
+                                      tapcontroller.authenticate(_emailcontroller.text,_passwordcontroller.text);
+                                    }
+
+                                   });
+                            },
                             color: Theme.of(context).colorScheme.secondary,
                             minWidth: double.infinity,
                             padding:const EdgeInsets.all(16),

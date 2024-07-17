@@ -9,7 +9,7 @@ class MobileLoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetxTapController controller = Get.put(GetxTapController());
+    GetxTapController controller = Get.put(GetxTapController(context: context));
     return GetBuilder<GetxTapController>(builder: (_) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
