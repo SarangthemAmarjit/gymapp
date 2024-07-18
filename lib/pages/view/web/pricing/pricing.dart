@@ -19,7 +19,7 @@ class PricingScreen extends StatelessWidget {
       builder: (pagectrl) {
         return SizedBox(
          
-          height: 700,
+          height: MediaQuery.sizeOf(context).width<600?600:700,
           child: Stack(
             
             children: [

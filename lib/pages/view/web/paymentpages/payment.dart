@@ -76,7 +76,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        NormalText(text: "Total",size: 14,),
+                        NormalText(text: "Admission",size: 14,),
                         TitleText(text: "Rs 1200",size: 18,)
                       ],
                     )),

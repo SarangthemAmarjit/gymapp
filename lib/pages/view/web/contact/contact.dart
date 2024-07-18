@@ -6,6 +6,7 @@ import 'package:gymwebapp/widget/actionbutton.dart';
 
 import 'package:gymwebapp/widget/cardwithshadow.dart';
 import 'package:gymwebapp/widget/overlaycard.dart';
+import 'package:gymwebapp/widget/titletext.dart';
 
 class ContactUsScreen extends StatelessWidget {
   const ContactUsScreen({super.key,this.keys});
@@ -15,9 +16,10 @@ class ContactUsScreen extends StatelessWidget {
       debugPrint("contact in debug");
     return SizedBox(
     
-      height: MediaQuery.sizeOf(context).width>800?700:1000,
+      height: MediaQuery.sizeOf(context).width>700?700:500,
       child: Column(
         children: [
+          TitleText(text: "Contacts"),
           // Expanded(
           //   flex: 3,
           //   child: CardWithShadow(
@@ -61,24 +63,24 @@ class _ContactCardState extends State<ContactCard> {
           child: Stack(
         
             children: [
-            //            Positioned(
-            //     child: OverlayCard(
-            //   gradient: LinearGradient(
-            //       begin: Alignment.topLeft,
-            //       end: Alignment.bottomLeft,
-            //       colors: [
-            //       Theme.of(context).colorScheme.primary,
+                       Positioned(
+                child: OverlayCard(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                  Theme.of(context).colorScheme.primary,
                   
-            //         Theme.of(context).colorScheme.primary.withOpacity(0.7)
+                    Theme.of(context).colorScheme.primary.withOpacity(0.7)
                    
-            //       ]),
+                  ]),
                
-            //   child: Image.asset(
-            //     'assets/images/backg.jpg',
-            //     fit: BoxFit.cover,
-            //     filterQuality: FilterQuality.low,
-            //   ),
-            // )),
+              child: Image.asset(
+                'assets/images/backgcontact.jpg',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.low,
+              ),
+            )),
              MediaQuery.sizeOf(context).width>800?Positioned(
                child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

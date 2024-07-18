@@ -172,7 +172,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 constraints: const BoxConstraints(maxWidth: 300),
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
-                                  child: TextFieldWidget(hint: 'Confirm OTP', controller:_otp1,align: TextAlign.center,),
+                                  child: TextFieldWidget(hint: 'OTP', controller:_otp1,align: TextAlign.center,),
                                 ),
                               ),
                            ):const SizedBox(),
