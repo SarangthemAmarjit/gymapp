@@ -1,9 +1,11 @@
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:gymwebapp/controller/pagegetcontroller.dart';
 import 'package:gymwebapp/controller/tapcontroller.dart';
+import 'package:gymwebapp/router/router.gr.dart';
 import 'package:gymwebapp/widget/normaltext.dart';
 
 import '../../../../domains/usecase/usecasesimpl.dart';
@@ -227,10 +229,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                              MaterialButton(
                       onPressed: () async {
                        if(otpshow){
-                            tapcontrol.confirmotp(_phonecontroller.text);  
+                          if(  tapcontrol.confirmotp(_otp1.text)){
+                            context.router.push(PaymentPage(args: _phonecontroller.text));
+                          }  
                        }else{
                               if(validateform()){
-                              tapcontrol.authenticationOptions.sendOTP(_phonecontroller.text);
+                              tapcontrol.sendotp(_phonecontroller.text);
                                if(!otpshow){
                                     _otpfocus1.requestFocus();
                                 }

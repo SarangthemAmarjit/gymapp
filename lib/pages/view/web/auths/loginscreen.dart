@@ -163,6 +163,8 @@ Future<bool> validateform(String email,String pass)  async{
                                          await validateform(_emailcontroller.text,_passwordcontroller.text).then((v){
                                     if(v){
                                       tapcontroller.authenticate(_emailcontroller.text,_passwordcontroller.text);
+                                      _emailcontroller.clear();
+                                      _passwordcontroller.clear();
                                     }
 
                                    });

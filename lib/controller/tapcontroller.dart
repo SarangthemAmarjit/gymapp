@@ -1,4 +1,4 @@
-
+import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:gymwebapp/domains/repository/authenticationrepo.dart';
 import 'package:gymwebapp/domains/usecase/usecasesimpl.dart';
 import 'package:gymwebapp/models/authenticationrepoimpl.dart';
-import 'package:gymwebapp/pages/dashboards/dashboard.dart';
+
 
 
 import '../domains/usecase/domainusecases.dart';
@@ -26,7 +26,7 @@ class GetxTapController extends GetxController
   User? user;
   bool get isadminlogin => _isadminlogin;
   final AuthUseCases authusecase = AuthenticateUseCase();
-  
+  int otp = 1234;
   void loginpagehandler({required bool isadmin}) {
     _isadminlogin = isadmin;
     update();
@@ -37,24 +37,29 @@ class GetxTapController extends GetxController
 
       //check the login username and user password
     await authenticationOptions.loginauth(username, pass).then((value){
-      user = value;
+      
       update();
-      if(user!=null){
-      print(user!.uname);
-      // ignore: use_build_context_synchronously
-      context.router.push(DashboardRoute(uid:value?.uid));
-      }else{
-        print("user null");
-      }
-    });
- 
+  
+      print(value);
+   
+      context.router.push(DashboardRoute(uid:"290"));
 
+    });
   }
 
-  void confirmotp(String phone){
 
-   context.router.push(PaymentPage(args: phone,));
+  void sendotp(String phone){
+    int rand = Random().nextInt(9000) + 1000;
+    otp = rand;
+    authenticationOptions.sendOTP(rand.toString(), "10",phone);
+    
+  }
 
+  bool confirmotp(String confirmotp){
+    if(confirmotp == otp.toString()){
+        return true;
+    }
+    return false;
   }
 
 

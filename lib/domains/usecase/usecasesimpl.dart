@@ -44,6 +44,16 @@ class AuthenticateUseCase implements AuthUseCases{
        }
         return phoneregex.hasMatch(phone)?null:"Phone must have 10 digits";
   }
+  
+  @override
+ String? forgotpassOTP(String otp, String mins) {
+   return "MOBEDS: One-time-Password (OTP) to access the MOBEDS Recruitment Portal is $otp valid till $mins mins. CubeTen technologies";
+  }
+  
+  @override
+  String? registerOTP(String otp, String mins) {
+      return "MOBEDS: One-time-Password (OTP) to access the MOBEDS Recruitment Portal is $otp valid till 5 mins. CubeTen technologies";
+  }
 
 
 

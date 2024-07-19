@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gymwebapp/widget/titletext.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 700,
+      height: 800,
       child: Column(
         children: [
-          SizedBox(height: 20,),
+         const SizedBox(height: 20,),
           TitleText(text: "Gallery".toUpperCase()),
-               SizedBox(height: 20,),
-          Expanded(
+               const SizedBox(height: 20,),
+          const Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
               child: ImageSlider(imageUrls: [
                 "assets/images/bg1.jpg",
                 "assets/images/bg1.jpg",
@@ -26,14 +25,7 @@ class GalleryScreen extends StatelessWidget {
                 "assets/images/bg1.jpg",
                 "assets/images/bg1.jpg",
                 "assets/images/bg1.jpg",
-                 "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
-                 "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
-                "assets/images/bg1.jpg",
+              
                 ]),
             ),
           ),
@@ -65,10 +57,10 @@ class _ImageSliderState extends State<ImageSlider> {
       children: <Widget>[
         Expanded(
           child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount:MediaQuery.sizeOf(context).width<500?2 :MediaQuery.sizeOf(context).width<700?4: MediaQuery.sizeOf(context).width<1300?6:8,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount:MediaQuery.sizeOf(context).width<500?2 :MediaQuery.sizeOf(context).width<700?4: MediaQuery.sizeOf(context).width<1300?4:4,
             crossAxisSpacing: 2,
-            mainAxisSpacing: 2
-            
+            mainAxisSpacing: 2,
+            childAspectRatio: 5/4
             ),
 
             itemCount: widget.imageUrls.length,
