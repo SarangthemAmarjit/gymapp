@@ -22,3 +22,17 @@ String smsapikey = "He/nUw79+kA-teIN41tduCpdN7vrR1RPHrpVxHdOiF";
 String loginapi = "http://10.10.1.96/api/Users/login";
 String otpapi = "https://api.textlocal.in/send/";
 String otpmessage = "MOBEDS: One-time-Password (OTP) to access the MOBEDS Recruitment Portal is 867796 valid till 10 mins. CubeTen technologies";
+
+
+Map<String, dynamic> paymentmethod = {
+  "DC": "Debit Card",
+  "NB": "Net Banking",
+  "CC": "Credit Card",
+  "MW": "Wallet",
+  "PP": "PhonePe",
+  "PW": "Paytm Wallet",
+  "EM": "EMI",
+  "NR": "Challan",
+  "BQ": "BharatQR",
+  "UP": "Unified Payment Interface",
+};

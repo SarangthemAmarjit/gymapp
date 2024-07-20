@@ -253,7 +253,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       color: Theme.of(context).colorScheme.secondary,
                       minWidth: double.infinity,
                       padding: const EdgeInsets.all(16),
-                      child: Text(otpshow?"Confirm OTP":'Send OTP',
+                      child:tapcontrol.otploading?CircularProgressIndicator() :Text(otpshow?"Confirm OTP":'Send OTP',
                           style: TextStyle(
                             color: Colors.white,
                           )),

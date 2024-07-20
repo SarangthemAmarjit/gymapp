@@ -8,69 +8,136 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:flutter/material.dart' as _i7;
-import 'package:gymwebapp/pages/dashboards/dashboard.dart' as _i1;
-import 'package:gymwebapp/pages/view/web/applicationform.dart' as _i2;
-import 'package:gymwebapp/pages/view/web/loginpage.dart' as _i5;
-import 'package:gymwebapp/pages/view/web/paymentpages/payment.dart' as _i3;
-import 'package:gymwebapp/screenhandler.dart' as _i4;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
+import 'package:gymwebapp/pages/dashboards/dashboard.dart' as _i2;
+import 'package:gymwebapp/pages/payment/paymentpage.dart' as _i1;
+import 'package:gymwebapp/pages/view/web/applicationform.dart' as _i3;
+import 'package:gymwebapp/pages/view/web/loginpage.dart' as _i6;
+import 'package:gymwebapp/pages/view/web/paymentpages/payment.dart' as _i4;
+import 'package:gymwebapp/screenhandler.dart' as _i5;
 
-abstract class $AppRouter extends _i6.RootStackRouter {
+abstract class $AppRouter extends _i7.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
+  final Map<String, _i7.PageFactory> pagesMap = {
+    AtomPaymentPage.name: (routeData) {
+      final args = routeData.argsAs<AtomPaymentPageArgs>();
+      return _i7.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.AtomPaymentPage(
+          args.mode,
+          args.payDetails,
+          args.responsehashKey,
+          args.responseDecryptionKey,
+          key: args.key,
+        ),
+      );
+    },
     DashboardRoute.name: (routeData) {
       final args = routeData.argsAs<DashboardRouteArgs>(
           orElse: () => const DashboardRouteArgs());
-      return _i6.AutoRoutePage<dynamic>(
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.DashboardScreen(
+        child: _i2.DashboardScreen(
           key: args.key,
           uid: args.uid,
         ),
       );
     },
     GymFormPage.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.GymFormPage(),
+        child: const _i3.GymFormPage(),
       );
     },
     PaymentPage.name: (routeData) {
       final args = routeData.argsAs<PaymentPageArgs>(
           orElse: () => const PaymentPageArgs());
-      return _i6.AutoRoutePage<dynamic>(
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.PaymentPage(
+        child: _i4.PaymentPage(
           key: args.key,
           args: args.args,
         ),
       );
     },
     RouteHandlerPage.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ScreenHandlerPage(),
+        child: const _i5.ScreenHandlerPage(),
       );
     },
     WebLoginPage.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.WebLoginPage(),
+        child: const _i6.WebLoginPage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.DashboardScreen]
-class DashboardRoute extends _i6.PageRouteInfo<DashboardRouteArgs> {
+/// [_i1.AtomPaymentPage]
+class AtomPaymentPage extends _i7.PageRouteInfo<AtomPaymentPageArgs> {
+  AtomPaymentPage({
+    required dynamic mode,
+    required dynamic payDetails,
+    required dynamic responsehashKey,
+    required dynamic responseDecryptionKey,
+    _i8.Key? key,
+    List<_i7.PageRouteInfo>? children,
+  }) : super(
+          AtomPaymentPage.name,
+          args: AtomPaymentPageArgs(
+            mode: mode,
+            payDetails: payDetails,
+            responsehashKey: responsehashKey,
+            responseDecryptionKey: responseDecryptionKey,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AtomPaymentPage';
+
+  static const _i7.PageInfo<AtomPaymentPageArgs> page =
+      _i7.PageInfo<AtomPaymentPageArgs>(name);
+}
+
+class AtomPaymentPageArgs {
+  const AtomPaymentPageArgs({
+    required this.mode,
+    required this.payDetails,
+    required this.responsehashKey,
+    required this.responseDecryptionKey,
+    this.key,
+  });
+
+  final dynamic mode;
+
+  final dynamic payDetails;
+
+  final dynamic responsehashKey;
+
+  final dynamic responseDecryptionKey;
+
+  final _i8.Key? key;
+
+  @override
+  String toString() {
+    return 'AtomPaymentPageArgs{mode: $mode, payDetails: $payDetails, responsehashKey: $responsehashKey, responseDecryptionKey: $responseDecryptionKey, key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i2.DashboardScreen]
+class DashboardRoute extends _i7.PageRouteInfo<DashboardRouteArgs> {
   DashboardRoute({
-    _i7.Key? key,
+    _i8.Key? key,
     String? uid,
-    List<_i6.PageRouteInfo>? children,
+    List<_i7.PageRouteInfo>? children,
   }) : super(
           DashboardRoute.name,
           args: DashboardRouteArgs(
@@ -82,8 +149,8 @@ class DashboardRoute extends _i6.PageRouteInfo<DashboardRouteArgs> {
 
   static const String name = 'DashboardRoute';
 
-  static const _i6.PageInfo<DashboardRouteArgs> page =
-      _i6.PageInfo<DashboardRouteArgs>(name);
+  static const _i7.PageInfo<DashboardRouteArgs> page =
+      _i7.PageInfo<DashboardRouteArgs>(name);
 }
 
 class DashboardRouteArgs {
@@ -92,7 +159,7 @@ class DashboardRouteArgs {
     this.uid,
   });
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   final String? uid;
 
@@ -103,9 +170,9 @@ class DashboardRouteArgs {
 }
 
 /// generated route for
-/// [_i2.GymFormPage]
-class GymFormPage extends _i6.PageRouteInfo<void> {
-  const GymFormPage({List<_i6.PageRouteInfo>? children})
+/// [_i3.GymFormPage]
+class GymFormPage extends _i7.PageRouteInfo<void> {
+  const GymFormPage({List<_i7.PageRouteInfo>? children})
       : super(
           GymFormPage.name,
           initialChildren: children,
@@ -113,16 +180,16 @@ class GymFormPage extends _i6.PageRouteInfo<void> {
 
   static const String name = 'GymFormPage';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.PaymentPage]
-class PaymentPage extends _i6.PageRouteInfo<PaymentPageArgs> {
+/// [_i4.PaymentPage]
+class PaymentPage extends _i7.PageRouteInfo<PaymentPageArgs> {
   PaymentPage({
-    _i7.Key? key,
+    _i8.Key? key,
     String? args,
-    List<_i6.PageRouteInfo>? children,
+    List<_i7.PageRouteInfo>? children,
   }) : super(
           PaymentPage.name,
           args: PaymentPageArgs(
@@ -134,8 +201,8 @@ class PaymentPage extends _i6.PageRouteInfo<PaymentPageArgs> {
 
   static const String name = 'PaymentPage';
 
-  static const _i6.PageInfo<PaymentPageArgs> page =
-      _i6.PageInfo<PaymentPageArgs>(name);
+  static const _i7.PageInfo<PaymentPageArgs> page =
+      _i7.PageInfo<PaymentPageArgs>(name);
 }
 
 class PaymentPageArgs {
@@ -144,7 +211,7 @@ class PaymentPageArgs {
     this.args,
   });
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   final String? args;
 
@@ -155,9 +222,9 @@ class PaymentPageArgs {
 }
 
 /// generated route for
-/// [_i4.ScreenHandlerPage]
-class RouteHandlerPage extends _i6.PageRouteInfo<void> {
-  const RouteHandlerPage({List<_i6.PageRouteInfo>? children})
+/// [_i5.ScreenHandlerPage]
+class RouteHandlerPage extends _i7.PageRouteInfo<void> {
+  const RouteHandlerPage({List<_i7.PageRouteInfo>? children})
       : super(
           RouteHandlerPage.name,
           initialChildren: children,
@@ -165,13 +232,13 @@ class RouteHandlerPage extends _i6.PageRouteInfo<void> {
 
   static const String name = 'RouteHandlerPage';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.WebLoginPage]
-class WebLoginPage extends _i6.PageRouteInfo<void> {
-  const WebLoginPage({List<_i6.PageRouteInfo>? children})
+/// [_i6.WebLoginPage]
+class WebLoginPage extends _i7.PageRouteInfo<void> {
+  const WebLoginPage({List<_i7.PageRouteInfo>? children})
       : super(
           WebLoginPage.name,
           initialChildren: children,
@@ -179,5 +246,5 @@ class WebLoginPage extends _i6.PageRouteInfo<void> {
 
   static const String name = 'WebLoginPage';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }

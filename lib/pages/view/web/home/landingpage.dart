@@ -39,61 +39,61 @@ class LandingPage extends StatelessWidget {
                     NavBar(pagetcontroller: pagecontroller,),
                     Expanded(
                       child: Responsivecontainer(
-                        child1: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            // NavBar(keyss:changescroll),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(40),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Welcome to Xtreme Fitness",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Theme.of(context).colorScheme.secondary),
-                                    ).animate().fade(duration: Durations.extralong1),
-                                    FittedBox(
-                                        child: Text(
-                                      subtext
-                                          .toUpperCase(),
-                                      style: const TextStyle(
-                                          fontSize: 40, fontWeight: FontWeight.bold),
-                                    )).animate().slideX(begin: -1,end: 0,
-                                      duration: Durations.extralong1),
-                                      FittedBox(
-                                        child: Text(
-                                      "Xtreme Fitness"
-                                          .toUpperCase(),
-                                      style: TextStyle(
-                                          fontSize: 40, fontWeight: FontWeight.bold,color: Theme.of(context).colorScheme.secondary),
-                                    )).animate().slideX(begin: -1,end: 0,
-                                      duration: Durations.extralong1),
-                                    const SizedBox(
-                                      height: 40,
-                                    ),
-                                    Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        ActionButton(
-                                            onpress: () {
-                                              pagecontroller.changeScrolltoScreen(1);
-                                            }, text: "Get Started"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        child2: MediaQuery.sizeOf(context).width<700?null:Center(
+                        // child2: Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: [
+                        //     // NavBar(keyss:changescroll),
+                        //     Expanded(
+                        //       child: Padding(
+                        //         padding: const EdgeInsets.all(40),
+                        //         child: Column(
+                        //           mainAxisAlignment: MainAxisAlignment.center,
+                        //           crossAxisAlignment: CrossAxisAlignment.start,
+                        //           children: [
+                        //             Text(
+                        //               "Welcome to Xtreme Fitness",
+                        //               style: TextStyle(
+                        //                   fontSize: 20,
+                        //                   fontWeight: FontWeight.bold,
+                        //                   color:
+                        //                       Theme.of(context).colorScheme.secondary),
+                        //             ).animate().fade(duration: Durations.extralong1),
+                        //             FittedBox(
+                        //                 child: Text(
+                        //               subtext
+                        //                   .toUpperCase(),
+                        //               style: const TextStyle(
+                        //                   fontSize: 40, fontWeight: FontWeight.bold),
+                        //             )).animate().slideX(begin: -1,end: 0,
+                        //               duration: Durations.extralong1),
+                        //               FittedBox(
+                        //                 child: Text(
+                        //               "Xtreme Fitness"
+                        //                   .toUpperCase(),
+                        //               style: TextStyle(
+                        //                   fontSize: 40, fontWeight: FontWeight.bold,color: Theme.of(context).colorScheme.secondary),
+                        //             )).animate().slideX(begin: -1,end: 0,
+                        //               duration: Durations.extralong1),
+                        //             const SizedBox(
+                        //               height: 40,
+                        //             ),
+                        //             Row(
+                        //               crossAxisAlignment: CrossAxisAlignment.center,
+                        //               children: [
+                        //                 ActionButton(
+                        //                     onpress: () {
+                        //                       pagecontroller.changeScrolltoScreen(1);
+                        //                     }, text: "Get Started"),
+                        //               ],
+                        //             ),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
+                        child1:Center(
                           child:pagecontroller.showlogin?pagecontroller.authpage==1?SignUpPage().animate().slideX(begin: 1,end: 0,duration: Durations.extralong1).fade():pagecontroller.authpage==2?ForgotPassWordScreen().animate().slideX(begin: 1,end: 0,duration: Durations.extralong1).fade():LoginScreen().animate().slideX(begin: 1,end: 0,duration: Durations.extralong1).fade() :SizedBox(
                             height: 300,
                             width: 300,
